@@ -47,13 +47,18 @@ struct ContentView: View {
     
     @State private var animationAmount = 0.0
 
+    @State private var backgroundColor1:Color = Color(red:0.1, green:0.2, blue:0.49)
+    @State private var backgroundColor2:Color = Color(red:0.8, green:0.15, blue:0.25)
+    
+
+    
                       
     var body: some View {
         
         ZStack{
             RadialGradient(stops:[
-                .init(color: Color(red:0.1, green:0.2, blue:0.49), location: 0.3),
-                .init(color: Color(red:0.8, green:0.15, blue:0.25), location: 0.3)
+                .init(color: backgroundColor1, location: 0.3),
+                .init(color: backgroundColor2, location: 0.3)
             ], center: .top, startRadius: 100, endRadius: 700)
                 .ignoresSafeArea()
             
@@ -124,6 +129,8 @@ struct ContentView: View {
     func swapMode(){
         counteries = loadFile()
         showHardMode = true
+        backgroundColor1 = Color(red:0.1, green:0.5, blue:0.2)
+        backgroundColor2 = Color(red:0.8, green:0.05, blue:0.05)
     }
     
     func flagTapped(_ number: Int){
